@@ -1,0 +1,16 @@
+---
+- name: Download jdk.dmg
+  get_url:
+    url: https://github.com/frekele/oracle-java/releases/download/8u212-b10/jdk-8u212-macosx-x64.dmg
+    dest: /tmp
+
+- name: Mount the downloaded dmg
+  command: hdiutil attach -mountpoint /Volumes/jdk /tmp/jdk-8u212-macosx-x64.dmg
+
+- name: Install the pkg file from the dmg
+  become: true
+  become_method: sudo
+  command: installer -package /Volumes/jdk/JDK\ 8\ Update\ 212.pkg -target /
+
+- name: Unmount the downloaded dmg
+  command: hdiutil detach /Volumes/jdk
