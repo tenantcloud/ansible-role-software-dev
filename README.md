@@ -9,7 +9,6 @@ Ansible role for install dev software. This role include install:
   - rtmpdump
   - libssh2
   - php@7.1
-  - python@2
   - mysql-connector-c
   - mysql-client
   - imagemagick
