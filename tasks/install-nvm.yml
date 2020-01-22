@@ -16,5 +16,5 @@
 
 - name: source zshrc
   become: false
-  command: source ~/.zshrc
+  command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
