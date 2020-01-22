@@ -1,6 +1,8 @@
 ---
-- homebrew_tap:
+- name: Homebrew tap
+  homebrew_tap:
       name: homebrew/cask-versions
 
-- homebrew_tap:
+- name: Homebrew tap
+  homebrew_tap:
       name: tenantcloud/tenantcloud
