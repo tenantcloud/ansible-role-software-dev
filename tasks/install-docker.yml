@@ -1,0 +1,23 @@
+---
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+    executable: /usr/local/bin/pip3
+
+- name: Change docker-compose settings
+  lineinfile:
+    path: /Users/{{ work_user }}/.docker/config.json
+    regexp: '  "credsStore'
+    state: absent
+
+- name: Source zshrc
+  become: false
+  command: /bin/zsh -c "source ~/.zshrc"
+  changed_when: false
+
+- name: Start service docker
+  become: true
+  become_method: sudo
+  become_user: "{{ work_user }}"
+  command: open --background -a Docker
+  changed_when: false

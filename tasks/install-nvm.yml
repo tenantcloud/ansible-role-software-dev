@@ -1,9 +1,9 @@
 ---
 - name: Install nvm
-  shell: >
+  shell: |
     set -o pipefail
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | zsh
-    creates=/Users/{{ work_user }}/.nvm/nvm.sh
+    curl https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | /bin/zsh
+    creates=/home/{{ work_user }}/.nvm/nvm.sh
   args:
     warn: false
   changed_when: false

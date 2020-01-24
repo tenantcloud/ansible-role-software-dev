@@ -18,11 +18,16 @@ Ansible role for install dev software. This role include install:
   - sequel-pro-nightly
   - phpstorm
   - libreoffice
+  - docker
+  - docker-compose
+  - ansible
   - java@8
   - node@10
 
 Requirements
 ------------
+
+Install tenantcloud.ansible_role_software_common
 
 Role Variables
 --------------

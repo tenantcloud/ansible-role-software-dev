@@ -27,4 +27,10 @@
     - sequel-pro-nightly
     - phpstorm
     - libreoffice
+    - docker
   become: false
+
+- name: Install ansible
+  pip:
+    name: ansible
+    executable: /usr/local/bin/pip3
