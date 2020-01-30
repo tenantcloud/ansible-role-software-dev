@@ -2,6 +2,7 @@
 # vars file for tenantcloud.ansible_role_software_dev
 
 work_user: "user"
+work_dir: "work"
 ansible_python_interpreter: "/usr/local/bin/python3"
 node_version: "v10"
 nvm_version: "v0.35.2"

@@ -33,6 +33,7 @@ Role Variables
 --------------
 
 work_user: "user" os username
+work_dir: "work" os user work directory
 
 Dependencies
 ------------
@@ -48,6 +49,7 @@ Example Playbook
       become: no
       vars:
         work_user: "user"
+        work_dir: "work"
       roles:
         - tenantcloud.ansible_role_software_dev
 
