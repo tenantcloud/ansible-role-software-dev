@@ -1,0 +1,36 @@
+---
+- name: Install Applications from Homebrew
+  homebrew:
+    name: '{{ item }}'
+    options: force
+  loop:
+    - nginx
+    - redis
+    - mysql@5.7
+    - rtmpdump
+    - libssh2
+    - php@7.1
+    - python@2
+    - mysql-connector-c
+    - mysql-client
+    - imagemagick
+    - dnsmasq
+    - awscli
+    - byobu
+  become: false
+
+- name: Install Applications from Homebrew Cask
+  homebrew_cask:
+    name: '{{ item }}'
+    options: force
+  loop:
+    - sequel-pro-nightly
+    - phpstorm
+    - libreoffice
+    - docker
+  become: false
+
+- name: Install ansible
+  pip:
+    name: ansible
+    executable: /usr/local/bin/pip3

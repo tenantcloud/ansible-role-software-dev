@@ -1,0 +1,79 @@
+---
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+    executable: /usr/local/bin/pip3
+
+- name: Change docker-compose settings
+  lineinfile:
+    path: /Users/{{ work_user }}/.docker/config.json
+    regexp: '  "credsStore'
+    state: absent
+
+- name: Remove docker-credential-osxkeychain
+  file:
+    path: /usr/local/bin/docker-credential-osxkeychain
+    state: absent
+
+- name: Create aws directory
+  file:
+    path: /Users/{{ work_user }}/.aws
+    state: directory
+    mode: 0777
+
+- name: Create aws config file
+  file:
+    path: "/Users/{{ work_user }}/.aws/config"
+    state: touch
+
+- name: Create aws credentials file
+  file:
+    path: "/Users/{{ work_user }}/.aws/credentials"
+    state: touch
+
+- name: Add line in config file
+  lineinfile:
+    path: /Users/{{ work_user }}/.aws/config
+    line: "[default]"
+    create: true
+    state: present
+
+- name: Add line in config file
+  lineinfile:
+    dest: /Users/{{ work_user }}/.aws/config
+    line: region = {{ aws_default_region }}
+    insertafter: "[default]"
+    state: present
+
+- name: Add line in credentials file
+  lineinfile:
+    path: /Users/{{ work_user }}/.aws/credentials
+    line: "[default]"
+    create: true
+    state: present
+
+- name: Add line in credentials file
+  lineinfile:
+    dest: /Users/{{ work_user }}/.aws/credentials
+    line: aws_access_key_id = {{ aws_access_key_id }}
+    insertafter: "[default]"
+    state: present
+
+- name: Add line in credentials file
+  lineinfile:
+    dest: /Users/{{ work_user }}/.aws/credentials
+    line: aws_secret_access_key = {{ aws_secret_access_key }}
+    insertafter: "aws_access_key_id = {{ aws_access_key_id }}"
+    state: present
+
+- name: Source zshrc
+  become: false
+  command: /bin/zsh -c "source ~/.zshrc"
+  changed_when: false
+
+- name: Start service docker
+  become: true
+  become_method: sudo
+  become_user: "{{ work_user }}"
+  command: open --background -a Docker
+  changed_when: false
