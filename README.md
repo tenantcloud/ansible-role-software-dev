@@ -33,7 +33,6 @@ Role Variables
 --------------
 
 work_user: "user" os username
-work_dir: "work" os user work directory
 
 Dependencies
 ------------
