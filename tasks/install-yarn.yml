@@ -1,7 +1,7 @@
 ---
 - name: Copy yarn install script
-  template: src=yarn.sh dest=/Users/{{ work_user }}/{{ work_dir }} mode=0777
+  template: src=yarn.sh dest=/Users/{{ work_user }} mode=0777
 
 - name: Run install yarn
-  command: zsh /Users/{{ work_user }}/{{ work_dir }}/yarn.sh
+  command: zsh /Users/{{ work_user }}/yarn.sh
   changed_when: false
