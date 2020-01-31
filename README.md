@@ -49,7 +49,6 @@ Example Playbook
       become: no
       vars:
         work_user: "user"
-        work_dir: "work"
       roles:
         - tenantcloud.ansible_role_software_dev
 
