@@ -48,6 +48,9 @@ Example Playbook
       become: no
       vars:
         work_user: "user"
+        aws_access_key_id:
+        aws_secret_access_key:
+        aws_default_region:
       roles:
         - tenantcloud.ansible_role_software_dev
 
