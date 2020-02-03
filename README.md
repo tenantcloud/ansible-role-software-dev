@@ -33,6 +33,16 @@ Role Variables
 --------------
 
 work_user: "user" os username
+node_version:
+nvm_version: 
+java_version:
+java_build_version:
+java_release:
+java_name:
+java_url:
+aws_access_key_id:
+aws_secret_access_key:
+aws_default_region:
 
 Dependencies
 ------------
