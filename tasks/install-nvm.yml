@@ -18,3 +18,9 @@
   become: false
   command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
+
+- name: Run install protractor
+  shell: . ~/.nvm/nvm.sh && which npm && npm install -g protractor
+  environment:
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  changed_when: false
