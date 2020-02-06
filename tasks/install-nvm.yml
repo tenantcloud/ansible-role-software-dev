@@ -19,8 +19,9 @@
   command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
 
-- name: Run install protractor
-  shell: . ~/.nvm/nvm.sh && which npm && npm install -g protractor
+- name: Install "protractor" package globally.
+  npm:
+    name: protractor
+    global: true
   environment:
     PATH: "{{ lookup('env','PATH') }}"
-  changed_when: false
