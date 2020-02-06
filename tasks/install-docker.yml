@@ -72,8 +72,3 @@
     path: /Users/{{ work_user }}/.docker/config.json
     regexp: '  "credsStore'
     state: absent
-
-- name: Remove docker-credential-osxkeychain
-  file:
-    path: /usr/local/bin/docker-credential-osxkeychain
-    state: absent
