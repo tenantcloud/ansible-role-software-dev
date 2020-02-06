@@ -66,9 +66,3 @@
   become_user: "{{ work_user }}"
   command: open --background -a Docker
   changed_when: false
-
-- name: Change docker settings
-  lineinfile:
-    path: /Users/{{ work_user }}/.docker/config.json
-    regexp: '  "credsStore'
-    state: absent
