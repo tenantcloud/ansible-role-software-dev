@@ -23,6 +23,7 @@ Ansible role for install dev software. This role include install:
   - ansible
   - java@8
   - node@10
+  - supervisor
 
 Requirements
 ------------
@@ -33,7 +34,16 @@ Role Variables
 --------------
 
 work_user: "user" os username
-work_dir: "work" os user work directory
+node_version:
+nvm_version: 
+java_version:
+java_build_version:
+java_release:
+java_name:
+java_url:
+aws_access_key_id:
+aws_secret_access_key:
+aws_default_region:
 
 Dependencies
 ------------
@@ -49,6 +59,9 @@ Example Playbook
       become: no
       vars:
         work_user: "user"
+        aws_access_key_id:
+        aws_secret_access_key:
+        aws_default_region:
       roles:
         - tenantcloud.ansible_role_software_dev
 

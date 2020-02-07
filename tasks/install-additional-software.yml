@@ -17,6 +17,7 @@
     - dnsmasq
     - awscli
     - byobu
+    - supervisor
   become: false
 
 - name: Install Applications from Homebrew Cask

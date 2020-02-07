@@ -4,17 +4,6 @@
     name: docker-compose
     executable: /usr/local/bin/pip3
 
-- name: Change docker-compose settings
-  lineinfile:
-    path: /Users/{{ work_user }}/.docker/config.json
-    regexp: '  "credsStore'
-    state: absent
-
-- name: Remove docker-credential-osxkeychain
-  file:
-    path: /usr/local/bin/docker-credential-osxkeychain
-    state: absent
-
 - name: Create aws directory
   file:
     path: /Users/{{ work_user }}/.aws

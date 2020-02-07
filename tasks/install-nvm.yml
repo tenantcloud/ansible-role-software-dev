@@ -18,3 +18,10 @@
   become: false
   command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
+
+- name: Install "protractor" package globally.
+  npm:
+    name: protractor
+    global: true
+  environment:
+    PATH: "{{ lookup('env','PATH') }}"

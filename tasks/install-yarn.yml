@@ -1,7 +1,7 @@
 ---
-- name: Copy yarn install script
-  template: src=yarn.sh dest=/Users/{{ work_user }} mode=0777
-
-- name: Run install yarn
-  command: zsh /Users/{{ work_user }}/yarn.sh
-  changed_when: false
+- name: Install "yarn" package globally.
+  npm:
+    name: yarn
+    global: true
+  environment:
+    PATH: "{{ lookup('env','PATH') }}"
