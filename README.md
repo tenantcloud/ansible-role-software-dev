@@ -4,8 +4,6 @@ tenantcloud.ansible_role_software_dev
 Ansible role for install dev software. This role include install:
 
   - nginx
-  - redis
-  - mysql@5.7
   - rtmpdump
   - libssh2
   - php@7.1
@@ -35,7 +33,8 @@ Role Variables
 
 work_user: "user" os username
 node_version:
-nvm_version: 
+nvm_version:
+nvm_node_version: 
 java_version:
 java_build_version:
 java_release:
@@ -62,6 +61,7 @@ Example Playbook
         aws_access_key_id:
         aws_secret_access_key:
         aws_default_region:
+        nvm_node_version: 
       roles:
         - tenantcloud.ansible_role_software_dev
 
