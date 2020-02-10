@@ -4,6 +4,7 @@
 ansible_python_interpreter: "/usr/local/bin/python3"
 node_version: "v10"
 nvm_version: "v0.33.8"
+nvm_node_version: "v10.19.0"
 java_version: "8"
 java_build_version: "b10"
 java_release: "212"

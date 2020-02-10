@@ -19,9 +19,33 @@
   command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
 
+- name: Create a symbolic link to npm
+  file:
+    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
+    dest: /usr/local/bin/npm
+    state: link
+
+- name: Create a symbolic link to node
+  file:
+    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/node
+    dest: /usr/local/bin/node
+    state: link
+
 - name: Install "protractor" package globally.
   npm:
     name: protractor
     global: true
   environment:
     PATH: "{{ lookup('env','PATH') }}"
+
+- name: Create a symbolic link to protractor
+  file:
+    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor
+    dest: /usr/local/bin/protractor
+    state: link
+
+- name: Create a symbolic link to webdriver-manager
+  file:
+    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/webdriver-manager
+    dest: /usr/local/bin/webdriver-manager
+    state: link
