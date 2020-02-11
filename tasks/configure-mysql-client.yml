@@ -1,0 +1,11 @@
+---
+- name: Add mysql-client line in .zshrc file
+  lineinfile:
+    path: /Users/{{ work_user }}/.zshrc
+    line: 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"'
+    create: true
+    state: present
+
+- name: source zshrc
+  command: /bin/zsh -c "source ~/.zshrc"
+  changed_when: false
