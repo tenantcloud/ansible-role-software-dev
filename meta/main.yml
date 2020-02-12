@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: software-dev
   author: Oleh Debretseni
   description: install dev sotware
   company: "TenantCloud LLC"
