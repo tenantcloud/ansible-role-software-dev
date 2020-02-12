@@ -66,3 +66,8 @@
   become_user: "{{ work_user }}"
   command: open --background -a Docker
   changed_when: false
+
+- name: Wait until the docker-desktop starts
+  wait_for:
+    path: /var/run/docker.sock
+    state: present
