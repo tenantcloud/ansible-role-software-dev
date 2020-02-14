@@ -13,7 +13,6 @@
     - mysql-client
     - imagemagick
     - dnsmasq
-    - awscli
     - byobu
     - supervisor
   become: false
@@ -32,4 +31,10 @@
 - name: Install ansible
   pip:
     name: ansible
+    executable: /usr/local/bin/pip3
+
+- name: Install awscli
+  pip:
+    name: awscli
+    extra_args: --upgrade
     executable: /usr/local/bin/pip3
