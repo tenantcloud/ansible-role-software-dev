@@ -3,6 +3,7 @@
   pip:
     name: docker-compose
     executable: /usr/local/bin/pip3
+  become: True
 
 - name: Create aws directory
   file:
