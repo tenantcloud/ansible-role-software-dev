@@ -63,7 +63,7 @@ Example Playbook
         aws_default_region:
         nvm_node_version: 
       roles:
-        - tenantcloud.ansible_role_software_dev
+        - tenantcloud.software_dev
 
 License
 -------
