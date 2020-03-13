@@ -1,5 +1,5 @@
 ---
-# vars file for tenantcloud.ansible_role_software_dev
+# vars file for tenantcloud.software_dev
 
 ansible_python_interpreter: "/usr/local/bin/python3"
 node_version: "v10"

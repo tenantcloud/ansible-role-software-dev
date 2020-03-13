@@ -1,11 +1,9 @@
-tenantcloud.ansible_role_software_dev
+tenantcloud.software_dev
 =========
 
 Ansible role for install dev software. This role include install:
 
   - nginx
-  - rtmpdump
-  - libssh2
   - php@7.1
   - mysql-connector-c
   - mysql-client
@@ -26,7 +24,7 @@ Ansible role for install dev software. This role include install:
 Requirements
 ------------
 
-Install tenantcloud.ansible_role_software_common
+Install tenantcloud.software_common
 
 Role Variables
 --------------
