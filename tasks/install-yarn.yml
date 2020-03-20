@@ -8,6 +8,6 @@
 
 - name: Create a symbolic link to yarn
   file:
-    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/yarn
+    src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/yarn
     dest: /usr/local/bin/yarn
     state: link

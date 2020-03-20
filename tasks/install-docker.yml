@@ -7,51 +7,51 @@
 
 - name: Create aws directory
   file:
-    path: /Users/{{ work_user }}/.aws
+    path: $HOME/.aws
     state: directory
     mode: 0777
 
 - name: Create aws config file
   file:
-    path: "/Users/{{ work_user }}/.aws/config"
+    path: "$HOME/.aws/config"
     state: touch
 
 - name: Create aws credentials file
   file:
-    path: "/Users/{{ work_user }}/.aws/credentials"
+    path: "$HOME/.aws/credentials"
     state: touch
 
 - name: Add line in config file
   lineinfile:
-    path: /Users/{{ work_user }}/.aws/config
+    path: $HOME/.aws/config
     line: "[default]"
     create: true
     state: present
 
 - name: Add line in config file
   lineinfile:
-    dest: /Users/{{ work_user }}/.aws/config
+    dest: $HOME/.aws/config
     line: region = {{ aws_default_region }}
     insertafter: "[default]"
     state: present
 
 - name: Add line in credentials file
   lineinfile:
-    path: /Users/{{ work_user }}/.aws/credentials
+    path: $HOME/.aws/credentials
     line: "[default]"
     create: true
     state: present
 
 - name: Add line in credentials file
   lineinfile:
-    dest: /Users/{{ work_user }}/.aws/credentials
+    dest: $HOME/.aws/credentials
     line: aws_access_key_id = {{ aws_access_key_id }}
     insertafter: "[default]"
     state: present
 
 - name: Add line in credentials file
   lineinfile:
-    dest: /Users/{{ work_user }}/.aws/credentials
+    dest: $HOME/.aws/credentials
     line: aws_secret_access_key = {{ aws_secret_access_key }}
     insertafter: "aws_access_key_id = {{ aws_access_key_id }}"
     state: present
@@ -64,7 +64,7 @@
 - name: Start service docker
   become: true
   become_method: sudo
-  become_user: "{{ work_user }}"
+  become_user: "{{ ansible_user }}"
   command: open --background -a Docker
   changed_when: false
 

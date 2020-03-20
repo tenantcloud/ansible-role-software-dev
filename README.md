@@ -29,7 +29,7 @@ Install tenantcloud.software_common
 Role Variables
 --------------
 
-work_user: "user" os username
+ansible_user: "user" os username
 node_version:
 nvm_version:
 nvm_node_version: 
@@ -55,7 +55,7 @@ Example Playbook
     - hosts: localhost
       become: no
       vars:
-        work_user: "user"
+        ansible_user: "user"
         aws_access_key_id:
         aws_secret_access_key:
         aws_default_region:

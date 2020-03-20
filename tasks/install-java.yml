@@ -18,5 +18,4 @@
   changed_when: false
 
 - name: Copy info file
-  become: true
-  template: src=info.txt.j2 dest=/Users/{{ work_user }}/Desktop/dev_software.txt
+  template: src=info.txt.j2 dest=$HOME/Desktop/dev_software.txt
