@@ -1,7 +1,7 @@
 ---
 - name: Add mysql-client line in .zshrc file
   lineinfile:
-    path: /Users/{{ work_user }}/.zshrc
+    path: $HOME/.zshrc
     line: 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"'
     create: true
     state: present

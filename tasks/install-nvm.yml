@@ -3,7 +3,7 @@
   shell: |
     set -o pipefail
     curl -o- https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | /bin/zsh
-    creates=/Users/{{ work_user }}/.nvm/nvm.sh
+    creates=$HOME/.nvm/nvm.sh
   args:
     warn: false
   changed_when: false
@@ -11,7 +11,7 @@
 - name: Install node and set default version
   shell: >
     /bin/zsh -c "source ~/.nvm/nvm.sh && nvm install {{ node_version }} && nvm alias default {{ node_version }}"
-    creates=/Users/{{ work_user }}/.nvm/alias
+    creates=$HOME/.nvm/alias
   changed_when: false
 
 - name: source zshrc
@@ -21,13 +21,13 @@
 
 - name: Create a symbolic link to npm
   file:
-    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
+    src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
     dest: /usr/local/bin/npm
     state: link
 
 - name: Create a symbolic link to node
   file:
-    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/node
+    src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/node
     dest: /usr/local/bin/node
     state: link
 
@@ -40,12 +40,12 @@
 
 - name: Create a symbolic link to protractor
   file:
-    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor
+    src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor
     dest: /usr/local/bin/protractor
     state: link
 
 - name: Create a symbolic link to webdriver-manager
   file:
-    src: /Users/{{ work_user }}/.nvm/versions/node/{{ nvm_node_version }}/bin/webdriver-manager
+    src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/webdriver-manager
     dest: /usr/local/bin/webdriver-manager
     state: link
