@@ -36,4 +36,4 @@
     name: awscli
     extra_args: --upgrade
     executable: /usr/local/bin/pip3
-  become: True
+  become: true
