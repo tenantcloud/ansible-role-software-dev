@@ -38,6 +38,14 @@
   environment:
     PATH: "{{ lookup('env','PATH') }}"
 
+- name: Install "pm2" package globally.
+  npm:
+    name: pm2
+    global: true
+  environment:
+    PATH: "{{ lookup('env','PATH') }}"
+  when: pm2
+
 - name: Create a symbolic link to protractor
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor

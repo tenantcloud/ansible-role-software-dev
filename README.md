@@ -41,6 +41,7 @@ java_url:
 aws_access_key_id:
 aws_secret_access_key:
 aws_default_region:
+pm2:
 
 Dependencies
 ------------
@@ -60,6 +61,7 @@ Example Playbook
         aws_secret_access_key:
         aws_default_region:
         nvm_node_version: 
+        pm2: 'true'
       roles:
         - tenantcloud.software_dev
 
