@@ -5,7 +5,7 @@
     options: force
   loop:
     - nginx
-    - php@7.1
+    - php
     - python@2
     - mysql-connector-c
     - mysql-client
