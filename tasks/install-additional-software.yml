@@ -13,6 +13,7 @@
     - dnsmasq
     - byobu
     - supervisor
+    - vault
   become: false
 
 - name: Install Applications from Homebrew Cask

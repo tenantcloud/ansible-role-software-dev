@@ -6,3 +6,7 @@
 - name: Homebrew tap
   homebrew_tap:
       name: tenantcloud/tenantcloud
+
+- name: Homebrew tap
+  homebrew_tap:
+    name: petems/vault-prebuilt
