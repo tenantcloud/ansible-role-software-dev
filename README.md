@@ -20,6 +20,7 @@ Ansible role for install dev software. This role include install:
   - java@8
   - node@10
   - supervisor
+  - vault
 
 Requirements
 ------------
