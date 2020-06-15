@@ -2,7 +2,7 @@
 - name: Install nvm
   shell: |
     set -o pipefail
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | /bin/zsh
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | /bin/zsh
     creates=$HOME/.nvm/nvm.sh
   args:
     warn: false
