@@ -32,7 +32,6 @@ Role Variables
 
 ansible_user: "user" os username
 node_version:
-nvm_version:
 nvm_node_version: 
 java_version:
 java_build_version:
