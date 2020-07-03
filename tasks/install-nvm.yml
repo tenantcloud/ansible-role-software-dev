@@ -19,6 +19,16 @@
   command: /bin/zsh -c "source ~/.zshrc"
   changed_when: false
 
+- name: Check node versions
+  shell: node -v
+  environment:
+    PATH: "{{ lookup('env','PATH') }}"
+  register: node_v
+
+- name: Set node versions to fact
+  set_fact:
+    nvm_node_version: "{{ node_v.stdout }}"
+
 - name: Create a symbolic link to npm
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
