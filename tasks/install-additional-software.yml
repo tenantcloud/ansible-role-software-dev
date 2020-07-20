@@ -14,6 +14,9 @@
     - byobu
     - supervisor
     - vault
+    - bash
+    - grep
+    - mc
   become: false
 
 - name: Install Applications from Homebrew Cask
