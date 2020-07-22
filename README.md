@@ -4,7 +4,7 @@ tenantcloud.software_dev
 Ansible role for install dev software. This role include install:
 
   - nginx-full
-  - php@7.1
+  - php
   - mysql-connector-c
   - mysql-client
   - imagemagick
