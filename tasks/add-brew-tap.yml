@@ -1,8 +1,12 @@
 ---
 - name: Homebrew tap
   homebrew_tap:
-      name: homebrew/cask-versions
+    name: homebrew/cask-versions
 
 - name: Homebrew tap
   homebrew_tap:
-      name: tenantcloud/tenantcloud
+    name: tenantcloud/tenantcloud
+
+- name: Homebrew tap
+  homebrew_tap:
+    name: denji/nginx

@@ -4,7 +4,6 @@
     name: '{{ item }}'
     options: force
   loop:
-    - nginx
     - php
     - python@2
     - mysql-connector-c
@@ -28,6 +27,12 @@
     - phpstorm
     - libreoffice
     - docker
+  become: false
+
+- name: Install nginx-full
+  homebrew:
+    name: nginx-full
+    options: with-lua-module,with-headers-more-module,with-http2
   become: false
 
 - name: Install ansible
