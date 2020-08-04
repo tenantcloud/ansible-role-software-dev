@@ -20,9 +20,9 @@
   changed_when: false
 
 - name: Check node versions
-  shell: node -v
-  environment:
-    PATH: "{{ lookup('env','PATH') }}"
+  shell: . $HOME/.zshrc && node -v
+  args:
+    executable: /bin/zsh
   register: node_v
 
 - name: Set node versions to fact
