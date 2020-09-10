@@ -21,6 +21,10 @@ Ansible role for install dev software. This role include install:
   - node@10
   - supervisor
   - vault
+  - bash
+  - grep
+  - mc
+  - xcode
 
 Requirements
 ------------
@@ -62,8 +66,13 @@ Example Playbook
         aws_default_region:
         nvm_node_version: 
         pm2: 'true'
+        mas_installed_apps:  
+          - { id: 497799835, name: "Xcode" }
       roles:
+        - geerlingguy.mas
         - tenantcloud.software_dev
+      environment:
+        PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
 
 License
 -------
