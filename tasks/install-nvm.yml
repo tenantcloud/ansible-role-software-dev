@@ -2,7 +2,7 @@
 - name: Install nvm
   shell: |
     set -o pipefail
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | /bin/zsh
+    curl -o- "{{ nvm_url }}" | /bin/zsh
     creates=$HOME/.nvm/nvm.sh
   args:
     warn: false
@@ -10,7 +10,8 @@
 
 - name: Install node and set default version
   shell: >
-    /bin/zsh -c "source ~/.nvm/nvm.sh && nvm install {{ node_version }} && nvm alias default {{ node_version }}"
+    /bin/zsh -c "source ~/.nvm/nvm.sh && nvm install {{ node_version }}
+    && nvm alias default {{ node_version }}"
     creates=$HOME/.nvm/alias
   changed_when: false
 

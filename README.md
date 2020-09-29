@@ -36,12 +36,12 @@ Role Variables
 
 ansible_user: "user" os username
 node_version:
-nvm_node_version: 
 java_version:
 java_build_version:
 java_release:
 java_name:
 java_url:
+nvm_url:
 aws_access_key_id:
 aws_secret_access_key:
 aws_default_region:
@@ -64,7 +64,6 @@ Example Playbook
         aws_access_key_id:
         aws_secret_access_key:
         aws_default_region:
-        nvm_node_version: 
         pm2: 'true'
         mas_installed_apps:  
           - { id: 497799835, name: "Xcode" }
