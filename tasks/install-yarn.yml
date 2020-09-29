@@ -11,3 +11,4 @@
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/yarn
     dest: /usr/local/bin/yarn
     state: link
+    mode: 0777
