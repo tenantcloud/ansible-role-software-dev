@@ -5,7 +5,7 @@
     line: 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"'
     create: true
     state: present
-    mode: 0777
+    mode: 0644
 
 - name: source zshrc
   command: /bin/zsh -c "source ~/.zshrc"

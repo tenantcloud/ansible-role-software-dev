@@ -36,14 +36,14 @@
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
     dest: /usr/local/bin/npm
     state: link
-    mode: 0777
+    mode: 0644
 
 - name: Create a symbolic link to node
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/node
     dest: /usr/local/bin/node
     state: link
-    mode: 0777
+    mode: 0644
 
 - name: Install "protractor" package globally.
   npm:
@@ -65,11 +65,11 @@
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor
     dest: /usr/local/bin/protractor
     state: link
-    mode: 0777
+    mode: 0644
 
 - name: Create a symbolic link to webdriver-manager
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/webdriver-manager
     dest: /usr/local/bin/webdriver-manager
     state: link
-    mode: 0777
+    mode: 0644
