@@ -1,4 +1,10 @@
 ---
+- name: Accept xcode license
+  become: true
+  become_method: sudo
+  command: xcodebuild -license accept
+  changed_when: false
+
 - name: Homebrew tap
   homebrew_tap:
     name: homebrew/cask-versions

@@ -10,7 +10,8 @@
 
 - name: Install the pkg file from the dmg
   become: true
-  command: installer -package /Volumes/jdk/JDK\ {{ java_version }}\ Update\ {{ java_release }}.pkg -target /
+  command: installer -package /Volumes/jdk/JDK\
+    {{ java_version }}\ Update\ {{ java_release }}.pkg -target /
   changed_when: false
 
 - name: Unmount the downloaded dmg
@@ -18,4 +19,8 @@
   changed_when: false
 
 - name: Copy info file
-  template: src=info.txt.j2 dest=$HOME/Desktop/dev_software.txt
+  template:
+    src: info.txt.j2
+    dest: $HOME/Desktop/dev_software.txt
+    mode: 0777
+  changed_when: false

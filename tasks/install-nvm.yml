@@ -2,7 +2,7 @@
 - name: Install nvm
   shell: |
     set -o pipefail
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | /bin/zsh
+    curl -o- "{{ nvm_url }}" | /bin/zsh
     creates=$HOME/.nvm/nvm.sh
   args:
     warn: false
@@ -10,7 +10,8 @@
 
 - name: Install node and set default version
   shell: >
-    /bin/zsh -c "source ~/.nvm/nvm.sh && nvm install {{ node_version }} && nvm alias default {{ node_version }}"
+    /bin/zsh -c "source ~/.nvm/nvm.sh && nvm install {{ node_version }}
+    && nvm alias default {{ node_version }}"
     creates=$HOME/.nvm/alias
   changed_when: false
 
@@ -24,6 +25,7 @@
   args:
     executable: /bin/zsh
   register: node_v
+  changed_when: false
 
 - name: Set node versions to fact
   set_fact:
@@ -34,12 +36,14 @@
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/npm
     dest: /usr/local/bin/npm
     state: link
+    mode: 0777
 
 - name: Create a symbolic link to node
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/node
     dest: /usr/local/bin/node
     state: link
+    mode: 0777
 
 - name: Install "protractor" package globally.
   npm:
@@ -61,9 +65,11 @@
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/protractor
     dest: /usr/local/bin/protractor
     state: link
+    mode: 0777
 
 - name: Create a symbolic link to webdriver-manager
   file:
     src: $HOME/.nvm/versions/node/{{ nvm_node_version }}/bin/webdriver-manager
     dest: /usr/local/bin/webdriver-manager
     state: link
+    mode: 0777

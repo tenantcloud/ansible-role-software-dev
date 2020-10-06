@@ -15,11 +15,13 @@
   file:
     path: "$HOME/.aws/config"
     state: touch
+    mode: 0600
 
 - name: Create aws credentials file
   file:
     path: "$HOME/.aws/credentials"
     state: touch
+    mode: 0600
 
 - name: Add line in config file
   lineinfile:
@@ -27,6 +29,7 @@
     line: "[default]"
     create: true
     state: present
+    mode: 0600
 
 - name: Add line in config file
   lineinfile:
@@ -34,6 +37,7 @@
     line: region = {{ aws_default_region }}
     insertafter: "[default]"
     state: present
+    mode: 0600
 
 - name: Add line in credentials file
   lineinfile:
@@ -41,6 +45,7 @@
     line: "[default]"
     create: true
     state: present
+    mode: 0600
 
 - name: Add line in credentials file
   lineinfile:
@@ -48,6 +53,7 @@
     line: aws_access_key_id = {{ aws_access_key_id }}
     insertafter: "[default]"
     state: present
+    mode: 0600
 
 - name: Add line in credentials file
   lineinfile:
@@ -55,6 +61,7 @@
     line: aws_secret_access_key = {{ aws_secret_access_key }}
     insertafter: "aws_access_key_id = {{ aws_access_key_id }}"
     state: present
+    mode: 0600
 
 - name: Source zshrc
   become: false

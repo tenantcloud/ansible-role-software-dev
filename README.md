@@ -1,3 +1,7 @@
+
+![Ansible Lint](https://github.com/tenantcloud/ansible-role-software-dev/workflows/Ansible%20Lint/badge.svg?branch-master)
+![Yaml Lint](https://github.com/tenantcloud/ansible-role-software-dev/workflows/Yaml%20Lint/badge.svg?branch-master)
+
 tenantcloud.software_dev
 =========
 
@@ -36,12 +40,12 @@ Role Variables
 
 ansible_user: "user" os username
 node_version:
-nvm_node_version: 
 java_version:
 java_build_version:
 java_release:
 java_name:
 java_url:
+nvm_url:
 aws_access_key_id:
 aws_secret_access_key:
 aws_default_region:
@@ -57,22 +61,23 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: localhost
-      become: no
-      vars:
-        ansible_user: "user"
-        aws_access_key_id:
-        aws_secret_access_key:
-        aws_default_region:
-        nvm_node_version: 
-        pm2: 'true'
-        mas_installed_apps:  
-          - { id: 497799835, name: "Xcode" }
-      roles:
-        - geerlingguy.mas
-        - tenantcloud.software_dev
-      environment:
-        PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+```yaml
+- hosts: localhost
+  become: no
+  vars:
+    ansible_user: "user"
+    aws_access_key_id:
+    aws_secret_access_key:
+    aws_default_region:
+    pm2: 'true'
+    mas_installed_apps:  
+      - { id: 497799835, name: "Xcode" }
+  roles:
+    - geerlingguy.mas
+    - tenantcloud.software_dev
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+```
 
 License
 -------
