@@ -15,6 +15,7 @@
     - bash
     - grep
     - mc
+    - jq
   become: false
 
 - name: Install Applications from Homebrew Cask
