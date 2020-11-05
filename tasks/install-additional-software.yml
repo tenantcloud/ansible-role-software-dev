@@ -5,7 +5,6 @@
     options: force
   loop:
     - php
-    - python@2
     - mysql-connector-c
     - mysql-client
     - imagemagick
@@ -16,6 +15,7 @@
     - bash
     - grep
     - mc
+    - jq
   become: false
 
 - name: Install Applications from Homebrew Cask

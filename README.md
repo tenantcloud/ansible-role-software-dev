@@ -29,6 +29,7 @@ Ansible role for install dev software. This role include install:
   - grep
   - mc
   - xcode
+  - jq
 
 Requirements
 ------------
