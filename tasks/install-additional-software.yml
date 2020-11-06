@@ -8,7 +8,6 @@
     - mysql-connector-c
     - mysql-client
     - imagemagick
-    - dnsmasq
     - byobu
     - supervisor
     - vault
