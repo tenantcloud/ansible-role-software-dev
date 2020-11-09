@@ -1,4 +1,10 @@
 ---
+- name: Set the path when you installed Xcode
+  become: true
+  become_method: sudo
+  command: xcode-select -s /Applications/Xcode.app/Contents/Developer
+  changed_when: false
+
 - name: Accept xcode license
   become: true
   become_method: sudo
