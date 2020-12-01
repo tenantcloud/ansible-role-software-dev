@@ -5,64 +5,6 @@
     executable: /usr/local/bin/pip3
   become: true
 
-- name: Create aws directory
-  file:
-    path: $HOME/.aws
-    state: directory
-    mode: 0777
-
-- name: Create aws config file
-  file:
-    path: "$HOME/.aws/config"
-    state: touch
-    mode: 0600
-
-- name: Create aws credentials file
-  file:
-    path: "$HOME/.aws/credentials"
-    state: touch
-    mode: 0600
-
-- name: Add line in config file
-  lineinfile:
-    path: $HOME/.aws/config
-    line: "[default]"
-    create: true
-    state: present
-    mode: 0600
-
-- name: Add line in config file
-  lineinfile:
-    dest: $HOME/.aws/config
-    line: region = {{ aws_default_region }}
-    insertafter: "[default]"
-    state: present
-    mode: 0600
-
-- name: Add line in credentials file
-  lineinfile:
-    path: $HOME/.aws/credentials
-    line: "[default]"
-    create: true
-    state: present
-    mode: 0600
-
-- name: Add line in credentials file
-  lineinfile:
-    dest: $HOME/.aws/credentials
-    line: aws_access_key_id = {{ aws_access_key_id }}
-    insertafter: "[default]"
-    state: present
-    mode: 0600
-
-- name: Add line in credentials file
-  lineinfile:
-    dest: $HOME/.aws/credentials
-    line: aws_secret_access_key = {{ aws_secret_access_key }}
-    insertafter: "aws_access_key_id = {{ aws_access_key_id }}"
-    state: present
-    mode: 0600
-
 - name: Source zshrc
   become: false
   command: /bin/zsh -c "source ~/.zshrc"
@@ -79,3 +21,15 @@
   wait_for:
     path: /var/run/docker.sock
     state: present
+
+- name: Wait until the docker-desktop daemon.json creates
+  wait_for:
+    path: $HOME/.docker/daemon.json
+    state: present
+
+- name: Add dns settings to docker
+  copy:
+    content: '{"features":{"buildkit":true},
+    "experimental":false,"dns":["8.8.8.8"]}'
+    dest: $HOME/.docker/daemon.json
+    mode: 0644

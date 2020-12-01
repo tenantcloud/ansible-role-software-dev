@@ -4,17 +4,14 @@
     name: '{{ item }}'
     options: force
   loop:
-    - php
-    - mysql-connector-c
-    - mysql-client
     - imagemagick
     - byobu
-    - supervisor
     - vault
     - bash
     - grep
     - mc
     - jq
+    - nginx
   become: false
 
 - name: Install Applications from Homebrew Cask
@@ -28,16 +25,13 @@
     - docker
   become: false
 
-- name: Install nginx-full
-  homebrew:
-    name: nginx-full
-    options: with-lua-module,with-headers-more-module,with-http2
-  become: false
-
-- name: Install ansible
+- name: Install ansible, pexpect
   pip:
-    name: ansible
-    executable: /usr/local/bin/pip3
+    name:
+      - ansible
+      - pexpect
+    executable: /usr/bin/pip3
+  become: true
 
 - name: Install awscli
   pip:
