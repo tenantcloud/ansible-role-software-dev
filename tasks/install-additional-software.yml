@@ -29,7 +29,6 @@
   pip:
     name:
       - ansible
-      - pexpect
     executable: /usr/bin/pip3
   become: true
 
