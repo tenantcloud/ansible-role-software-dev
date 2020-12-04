@@ -24,7 +24,6 @@ Ansible role for install dev software. This role include install:
   - mc
   - xcode
   - jq
-  - pexpect
 
 Requirements
 ------------
