@@ -1,4 +1,7 @@
 ---
+# TODO:
+# you need to ask the developers if they will update the version.
+
 - name: Download jdk.dmg
   get_url:
     url: "{{ java_url }}"
