@@ -1,4 +1,8 @@
 ---
+# TODO:
+# complete the removal of existing packages
+# before installing the software (a separate task in an existing role)
+
 - name: Install Applications from Homebrew
   homebrew:
     name: '{{ item }}'
