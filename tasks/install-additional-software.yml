@@ -19,7 +19,7 @@
   become: false
 
 - name: Install Applications from Homebrew Cask
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: '{{ item }}'
     options: force
   loop:
@@ -29,11 +29,11 @@
     - docker
   become: false
 
-- name: Install ansible, pexpect
+- name: Install ansible
   pip:
     name:
       - ansible
-    executable: /usr/bin/pip3
+    executable: /usr/local/bin/pip3
   become: true
 
 - name: Install awscli
