@@ -1,0 +1,16 @@
+---
+- name: Remove Applications from Homebrew
+  homebrew:
+    name: '{{ item.package }}'
+    state: removed
+  loop:
+    "{{ homebrew_remove }}"
+  become: false
+
+- name: Remove Applications from Homebrew Cask
+  community.general.homebrew_cask:
+    name: '{{ item.package }}'
+    state: removed
+  loop:
+    "{{ homebrew_cask_remove }}"
+  become: false
