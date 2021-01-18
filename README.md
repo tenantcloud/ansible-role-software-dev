@@ -1,11 +1,10 @@
 
-![Ansible Lint](https://github.com/tenantcloud/ansible-role-software-dev/workflows/Ansible%20Lint/badge.svg?branch-master)
-![Yaml Lint](https://github.com/tenantcloud/ansible-role-software-dev/workflows/Yaml%20Lint/badge.svg?branch-master)
+![Lint Ansible Roles](https://github.com/tenantcloud/ansible-role-software-dev/workflows/Lint%20Ansible%20Roles/badge.svg?branch-master)
 
 tenantcloud.software_dev
 =========
 
-Ansible role for install dev software. This role include install:
+Ansible role for install and remove (optional) dev software. This role include install:
 
   - nginx
   - imagemagick
@@ -57,6 +56,10 @@ Example Playbook
     ansible_user: "user"
     mas_installed_apps:  
       - { id: 497799835, name: "Xcode" }
+    homebrew_remove:
+      - package: ""
+    homebrew_cask_remove:
+      - package: ""
   roles:
     - geerlingguy.mas
     - tenantcloud.software_dev
