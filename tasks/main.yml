@@ -1,6 +1,7 @@
 ---
 - include: add-brew-tap.yml
-- include: remove-software.yml
 - include: install-additional-software.yml
 - include: install-docker.yml
+- include: install-nvm.yml
+- include: install-yarn.yml
 - include: install-java.yml
