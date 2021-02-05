@@ -17,6 +17,8 @@ Ansible role for install and remove (optional) dev software. This role include i
   - docker-compose
   - ansible
   - java@8
+  - nvm  
+  - node@12
   - vault
   - bash
   - grep
@@ -54,6 +56,7 @@ Example Playbook
   become: no
   vars:
     ansible_user: "user"
+    pm2: 'false'
     mas_installed_apps:  
       - { id: 497799835, name: "Xcode" }
     homebrew_remove:
