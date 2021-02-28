@@ -44,3 +44,5 @@
   become: false
   command: git lfs install
   changed_when: false
+  tags:
+    - skip_ansible_lint
