@@ -11,6 +11,7 @@
     - grep
     - mc
     - jq
+    - yq
     - nginx
     - git-lfs
   become: false
