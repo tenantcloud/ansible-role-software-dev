@@ -11,7 +11,9 @@
     - grep
     - mc
     - jq
+    - yq
     - nginx
+    - git-lfs
   become: false
 
 - name: Install Applications from Homebrew Cask
@@ -38,3 +40,10 @@
     extra_args: --upgrade
     executable: /usr/local/bin/pip3
   become: true
+
+- name: Git lfs install
+  become: false
+  command: git lfs install
+  changed_when: false
+  tags:
+    - skip_ansible_lint

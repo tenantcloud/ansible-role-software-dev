@@ -25,6 +25,8 @@ Ansible role for install and remove (optional) dev software. This role include i
   - mc
   - xcode
   - jq
+  - yq  
+  - git-lfs
 
 Requirements
 ------------
